@@ -1,5 +1,8 @@
 from pydantic import BaseModel
 
+class SummarizeRequest(BaseModel):
+    text: str
+
 class ToDoRequest(BaseModel):
     name: str
     completed: bool
@@ -10,4 +13,4 @@ class ToDoResponse(BaseModel):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
